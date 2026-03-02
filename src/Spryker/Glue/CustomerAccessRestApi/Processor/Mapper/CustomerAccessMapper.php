@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\RestCustomerAccessAttributesTransfer;
 
 class CustomerAccessMapper implements CustomerAccessMapperInterface
 {
-    /**
-     * @param array $customerAccessContentTypeResourceTypes
-     * @param \Generated\Shared\Transfer\RestCustomerAccessAttributesTransfer $restCustomerAccessAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestCustomerAccessAttributesTransfer
-     */
     public function mapCustomerAccessContentTypeResourceTypeToRestCustomerAccessAttributesTransfer(
         array $customerAccessContentTypeResourceTypes,
         RestCustomerAccessAttributesTransfer $restCustomerAccessAttributesTransfer

@@ -21,11 +21,6 @@ class CustomerAccessRestApiDependencyProvider extends AbstractBundleDependencyPr
      */
     public const CLIENT_CUSTOMER_ACCESS_STORAGE = 'CLIENT_CUSTOMER_ACCESS_STORAGE';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -34,11 +29,6 @@ class CustomerAccessRestApiDependencyProvider extends AbstractBundleDependencyPr
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addCustomerAccessStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_CUSTOMER_ACCESS_STORAGE, function (Container $container) {

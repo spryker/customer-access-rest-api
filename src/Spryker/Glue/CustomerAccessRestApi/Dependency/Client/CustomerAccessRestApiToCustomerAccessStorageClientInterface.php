@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\CustomerAccessTransfer;
 
 interface CustomerAccessRestApiToCustomerAccessStorageClientInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\CustomerAccessTransfer
-     */
     public function getAuthenticatedCustomerAccess(): CustomerAccessTransfer;
 }

@@ -25,21 +25,12 @@ class CustomerAccessRestResponseBuilder implements CustomerAccessRestResponseBui
      */
     protected $customerAccessMapper;
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\CustomerAccessRestApi\Processor\Mapper\CustomerAccessMapperInterface $customerAccessMapper
-     */
     public function __construct(RestResourceBuilderInterface $restResourceBuilder, CustomerAccessMapperInterface $customerAccessMapper)
     {
         $this->restResourceBuilder = $restResourceBuilder;
         $this->customerAccessMapper = $customerAccessMapper;
     }
 
-    /**
-     * @param array $customerAccessContentTypeResourceTypes
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCustomerAccessResponse(array $customerAccessContentTypeResourceTypes): RestResponseInterface
     {
         $restCustomerAccessAttributesTransfer = $this->customerAccessMapper

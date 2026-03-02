@@ -31,11 +31,6 @@ class CustomerAccessReader implements CustomerAccessReaderInterface
      */
     protected $customerAccessRestResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\CustomerAccessRestApi\CustomerAccessRestApiConfig $customerAccessRestApiConfig
-     * @param \Spryker\Glue\CustomerAccessRestApi\Dependency\Client\CustomerAccessRestApiToCustomerAccessStorageClientInterface $customerAccessStorageClient
-     * @param \Spryker\Glue\CustomerAccessRestApi\Processor\RestResponseBuilder\CustomerAccessRestResponseBuilderInterface $customerAccessRestResponseBuilder
-     */
     public function __construct(
         CustomerAccessRestApiConfig $customerAccessRestApiConfig,
         CustomerAccessRestApiToCustomerAccessStorageClientInterface $customerAccessStorageClient,
@@ -46,11 +41,6 @@ class CustomerAccessReader implements CustomerAccessReaderInterface
         $this->customerAccessRestResponseBuilder = $customerAccessRestResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getCustomerAccess(RestRequestInterface $restRequest): RestResponseInterface
     {
         $customerAccessContentTypeToResourceTypeMapping = $this->customerAccessRestApiConfig->getCustomerAccessContentTypeToResourceTypeMapping();
@@ -60,11 +50,6 @@ class CustomerAccessReader implements CustomerAccessReaderInterface
             ->createCustomerAccessResponse($customerAccessContentTypeToResourceTypeMapping);
     }
 
-    /**
-     * @param array $customerAccessContentTypeResourceType
-     *
-     * @return array
-     */
     protected function filterOutUnrestrictedCustomerAccessContentTypes(array $customerAccessContentTypeResourceType): array
     {
         $authenticatedCustomerAccessTransfer = $this->customerAccessStorageClient->getAuthenticatedCustomerAccess();
@@ -77,12 +62,6 @@ class CustomerAccessReader implements CustomerAccessReaderInterface
         return $customerAccessContentTypeResourceType;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ContentTypeAccessTransfer $contentTypeAccessTransfer
-     * @param array $customerAccessContentTypeResourceType
-     *
-     * @return bool
-     */
     protected function isCustomerAccessContentTypeUnrestricted(
         ContentTypeAccessTransfer $contentTypeAccessTransfer,
         array $customerAccessContentTypeResourceType

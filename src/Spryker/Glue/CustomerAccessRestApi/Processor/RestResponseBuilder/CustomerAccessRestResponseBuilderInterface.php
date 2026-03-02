@@ -11,10 +11,5 @@ use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 
 interface CustomerAccessRestResponseBuilderInterface
 {
-    /**
-     * @param array $customerAccessContentTypeResourceTypes
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCustomerAccessResponse(array $customerAccessContentTypeResourceTypes): RestResponseInterface;
 }

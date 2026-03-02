@@ -24,9 +24,6 @@ class CustomerAccessRestApiToCustomerAccessStorageClientBridge implements Custom
         $this->customerAccessStorageClient = $customerAccessStorageClient;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerAccessTransfer
-     */
     public function getAuthenticatedCustomerAccess(): CustomerAccessTransfer
     {
         return $this->customerAccessStorageClient->getAuthenticatedCustomerAccess();

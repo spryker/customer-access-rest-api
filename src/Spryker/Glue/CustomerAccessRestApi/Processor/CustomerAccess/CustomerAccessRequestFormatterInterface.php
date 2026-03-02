@@ -12,11 +12,5 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface CustomerAccessRequestFormatterInterface
 {
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\RequestBuilderInterface $requestBuilder
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\Request\RequestBuilderInterface
-     */
     public function updateResourceIsProtectedFlag(RequestBuilderInterface $requestBuilder, Request $request): RequestBuilderInterface;
 }

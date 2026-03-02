@@ -37,10 +37,6 @@ class CustomerAccessRequestFormatter implements CustomerAccessRequestFormatterIn
      */
     protected $customerAccessRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\CustomerAccessRestApi\Dependency\Client\CustomerAccessRestApiToCustomerAccessStorageClientInterface $customerAccessStorageClient
-     * @param \Spryker\Glue\CustomerAccessRestApi\CustomerAccessRestApiConfig $customerAccessRestApiConfig
-     */
     public function __construct(
         CustomerAccessRestApiToCustomerAccessStorageClientInterface $customerAccessStorageClient,
         CustomerAccessRestApiConfig $customerAccessRestApiConfig
@@ -49,12 +45,6 @@ class CustomerAccessRequestFormatter implements CustomerAccessRequestFormatterIn
         $this->customerAccessRestApiConfig = $customerAccessRestApiConfig;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\RequestBuilderInterface $requestBuilder
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\Request\RequestBuilderInterface
-     */
     public function updateResourceIsProtectedFlag(RequestBuilderInterface $requestBuilder, Request $request): RequestBuilderInterface
     {
         $currentResourceCustomerAccessContentType = $this->getCurrentResourceCustomerAccessContentType($request);
@@ -77,11 +67,6 @@ class CustomerAccessRequestFormatter implements CustomerAccessRequestFormatterIn
         return $requestBuilder;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return string|null
-     */
     protected function getCurrentResourceCustomerAccessContentType(Request $request): ?string
     {
         $customerAccessContentTypeToResourceTypeMapping = $this->customerAccessRestApiConfig
@@ -97,12 +82,6 @@ class CustomerAccessRequestFormatter implements CustomerAccessRequestFormatterIn
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ContentTypeAccessTransfer $contentTypeAccessTransfer
-     * @param string $currentResourceCustomerAccessContentType
-     *
-     * @return bool
-     */
     protected function isCustomerAccessContentTypeRestricted(
         ContentTypeAccessTransfer $contentTypeAccessTransfer,
         string $currentResourceCustomerAccessContentType
